@@ -1,10 +1,26 @@
-# Specifies files to intentionally ignore when using Git
-# http://git-scm.com/docs/gitignore
-
-node_modules/
-www/build/
-platforms/
-plugins/
-*.swp
+# temp files
 .DS_Store
-Thumbs.db
+.tmp
+.sass-cache
+
+# npm & bower
+/node_modules/
+/app/bower_components/
+
+# custom gulp settings
+/gulp/.gulp_settings.json
+
+# ionic fonts
+/app/main/assets/fonts/ionicons.*
+
+# cordova
+/platforms/
+/plugins/
+/res/*/current/
+
+# build folder
+/www/**
+
+# IDE
+*.sublime-project
+*.sublime-workspace
