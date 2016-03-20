@@ -1,0 +1,51 @@
+<ion-view view-title="Search">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input">
+        <span class="input-label">line</span>
+        <input ion-autocomplete type="text" readonly="readonly" class="ion-autocomplete" autocomplete="off" ng-model="searchCtrl.search.line" items-method="searchCtrl.getLines(query)" item-view-value-key="name" items-method-value-key="items" max-selected-items="1"/>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">station</span>
+        <select ng-options="station.name for station in searchCtrl.search.line.stations track by station.id" ng-model="searchCtrl.search.station"></select>
+      </label>
+      <label class="item item-radio">
+        <ion-radio ng-model="searchCtrl.search.direction" ng-value="'A'">{{searchCtrl.search.line.A}}</ion-radio>
+      </label>
+      <label class="item item-radio">
+        <ion-radio ng-model="searchCtrl.search.direction" ng-value="'R'">{{searchCtrl.search.line.R}}</ion-radio>
+      </label>
+    </div>
+    <div class="row">
+      {{searchCtrl.prevision.direction}}
+    </div>
+    <div class="row" ng-repeat="prevision in searchCtrl.prevision.previsions">
+      <div class="col">
+        {{prevision.station}}
+      </div>
+      <div class="col">
+        {{prevision.time}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button class="button button-assertive">
+          <i class="fa fa-star"></i>
+          Add to favorites
+        </button>
+      </div>
+      <div class="col">
+        <button class="button button-positive" ng-click="searchCtrl.search()">
+          <i class="fa fa-search"></i>
+          Submit
+        </button>
+      </div>
+    </div>
+
+  </ion-content>
+  <div style="position: absolute; bottom: 0px; width: 100%">
+    <div style="text-align: center">
+      <p>Bottom</p>
+    </div>
+</div>
+</ion-view>

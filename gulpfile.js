@@ -10,7 +10,9 @@ gulp.paths = {
   dist: 'www',
   jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js'],
   jsonFiles: ['app/**/*.json', '!app/bower_components/**/*.json'],
-  templates: ['app/*/templates/**/*'],
+  // I don't necessarily want to put templates in templates folder
+  // templates: ['app/*/templates/**/*'],
+  templates: ['app/**/*'],
   contrib: ['gulpfile.js', 'gulp/**/*.js', 'hooks/**/*.js'],
   karma: ['test/karma/**/*.js'],
   protractor: ['test/protractor/**/*.js']
@@ -49,7 +51,8 @@ if (defaults && defaults[task]) {
 // cordova command one of cordova's build commands?
 if (options.cordova) {
   var cmds = ['build', 'run', 'emulate', 'prepare', 'serve'];
-  for (var i = 0, cmd; ((cmd = cmds[i])); i++) {
+  for (var i = 0, cmd;
+    ((cmd = cmds[i])); i++) {
     if (options.cordova.indexOf(cmd) >= 0) {
       options.cordovaBuild = true;
       break;
