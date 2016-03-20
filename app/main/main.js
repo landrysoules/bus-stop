@@ -1,23 +1,25 @@
 'use strict';
 angular.module('main', [
-  'ionic',
-  'ngCordova',
-  'ui.router',
-  'pouchdb',
-  'ngResource'
-  // TODO: load other modules selected during generation
-])
-.config(function ($stateProvider, $urlRouterProvider) {
+    'ionic',
+    'ngCordova',
+    'ui.router',
+    'pouchdb',
+    'ngResource',
+    'LocalForageModule',
+    'ion-autocomplete',
+    'ngLodash'
+  ])
+  .config(function ($stateProvider, $urlRouterProvider) {
 
-  // ROUTING with ui.router
-  $urlRouterProvider.otherwise('/main/list');
-  $stateProvider
+    // ROUTING with ui.router
+    $urlRouterProvider.otherwise('/main/list');
+    $stateProvider
     // this state is placed in the <ion-nav-view> in the index.html
-    .state('main', {
-      url: '/main',
-      abstract: true,
-      templateUrl: 'main/templates/tabs.html'
-    })
+      .state('main', {
+        url: '/main',
+        abstract: true,
+        templateUrl: 'main/templates/tabs.html'
+      })
       .state('main.list', {
         url: '/list',
         views: {
@@ -31,7 +33,7 @@ angular.module('main', [
         url: '/search',
         views: {
           'tab-search': {
-            templateUrl: 'main/templates/search.html',
+            templateUrl: 'search/search.html',
             controller: 'SearchController as searchCtrl'
           }
         }
@@ -54,4 +56,4 @@ angular.module('main', [
           }
         }
       });
-});
+  });
